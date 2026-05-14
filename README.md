@@ -12,44 +12,43 @@ Runs locally over stdio. Talks to Notes via JXA (`/usr/bin/osascript -l JavaScri
 
 ## Install
 
-```sh
-npm install -g @kolivri/mac-notes-mcp
-```
+### Option A — Claude Code plugin marketplace (recommended)
 
-Or run without installing globally:
+Add the marketplace, then install the plugin:
 
 ```sh
-npx @kolivri/mac-notes-mcp
+claude plugin marketplace add stuk88/mac-notes-mcp
+claude plugin install mac-notes@mac-notes-mcp
 ```
 
-## Register with Claude Code
+That's it. Claude Code spawns the MCP server automatically; no separate registration needed. The compiled `dist/` is shipped in the repo, so you don't need to run `npm install` or `npm run build`.
 
-Add it to your Claude Code MCP config (usually `~/.claude/settings.json`):
+### Option B — Standalone MCP server
 
-```jsonc
-{
-  "mcpServers": {
-    "mac-notes": {
-      "command": "npx",
-      "args": ["-y", "@kolivri/mac-notes-mcp"]
-    }
-  }
-}
+If you'd rather wire it up yourself (no plugin manager):
+
+```sh
+git clone https://github.com/stuk88/mac-notes-mcp
+cd mac-notes-mcp
+npm install
+npm run build
 ```
 
-Or, if you installed globally:
+## Register with Claude Code (Option B only)
 
-```jsonc
-{
-  "mcpServers": {
-    "mac-notes": {
-      "command": "mac-notes-mcp"
-    }
-  }
-}
+Point Claude Code at the compiled entry. The cleanest way is the built-in CLI:
+
+```sh
+claude mcp add --scope user mac-notes -- node /absolute/path/to/mac-notes-mcp/dist/index.js
 ```
 
-Restart Claude Code, then run `claude mcp list` to confirm it's connected.
+Then verify:
+
+```sh
+claude mcp list
+```
+
+You should see `mac-notes ... ✓ Connected`.
 
 ## Permissions
 
@@ -140,6 +139,11 @@ The integration test creates a folder named `mcp-test-<uuid>` in your default ac
 
 Design decisions and trade-offs live in [`design-log/0001-mac-notes-mcp.md`](design-log/0001-mac-notes-mcp.md).
 
+## Author
+
+Built by **[Stas Arshanski](https://github.com/stuk88)** at **[Kolivri.com](https://kolivri.com)**.
+Issues and pull requests welcome at [github.com/stuk88/mac-notes-mcp](https://github.com/stuk88/mac-notes-mcp).
+
 ## License
 
-MIT
+MIT &copy; Stas Arshanski / [Kolivri.com](https://kolivri.com)

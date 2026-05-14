@@ -1,0 +1,19 @@
+{
+  "name": "mac-notes",
+  "version": "0.1.0",
+  "description": "Read, search, and edit Apple Notes from Claude Code. Eight tools for browsing accounts/folders, listing and searching notes, reading content, creating new notes, and appending or updating existing ones. macOS only; uses JXA via osascript.",
+  "author": {
+    "name": "Stas Arshanski",
+    "email": "stas@kolivri.com",
+    "url": "https://kolivri.com"
+  },
+  "homepage": "https://github.com/stuk88/mac-notes-mcp",
+  "license": "MIT",
+  "keywords": [
+    "apple-notes",
+    "notes",
+    "macos",
+    "mcp",
+    "productivity"
+  ]
+}

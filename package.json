@@ -34,8 +34,20 @@
     "macos",
     "notes"
   ],
-  "author": "stas@kolivri.com",
+  "author": {
+    "name": "Stas Arshanski",
+    "email": "stas@kolivri.com",
+    "url": "https://kolivri.com"
+  },
   "license": "MIT",
+  "homepage": "https://github.com/stuk88/mac-notes-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stuk88/mac-notes-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stuk88/mac-notes-mcp/issues"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
     "zod": "^3.23.8"

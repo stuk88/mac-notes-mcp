@@ -1,5 +1,4 @@
 node_modules/
-dist/
 *.log
 .DS_Store
 .fastembed_cache/
@@ -7,3 +6,12 @@ dist/
 .env.*
 !.env.example
 .claude/
+
+# dist/ is intentionally tracked: the Claude Code plugin manifest at
+# .mcp.json points at ${CLAUDE_PLUGIN_ROOT}/dist/index.js, so consumers must
+# get the compiled output when they `claude plugin install` this repo.
+# The negations override ~/.gitignore_global which excludes any "dist" path.
+# Source maps stay ignored — they bloat the install for no end-user value.
+!dist/
+!dist/**/*.js
+dist/**/*.map
